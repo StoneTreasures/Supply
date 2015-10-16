@@ -1,0 +1,1064 @@
+<style>
+#content .section .col-md-3 { display: none }
+#content .col-md-9 { width: 100% }
+.setnd { border: 1px solid #eee; padding: 20px 0px}
+#tabs li {
+float: left;
+padding: 5px 20px;
+background: #eee;
+margin: 0px 5px;
+}
+.activeta { background: #272727  !important }
+.lala { border: 1px solid #272727  !important }
+#tabs-1 { display: block }
+#tabs { float: left }
+
+h2.heading.active {
+color: rgb(0, 0, 0);
+background:#F5FBFF;
+}
+.open h2.heading {
+	color: #fff  !important ;
+	background: #58B3F0  !important ;
+}
+.hd { font-size: 150% ; line-height: 1.8 }
+</style>
+<p class="hd">
+	  Để chỉnh sửa các mục khác nhau, bạn có thể click vào tên từng mục để mở phần cần sửa. Sau khi chỉnh sửa, bạn nhấn nút Lưu ở góc phải màn hình để hoàn tất.
+</p>
+<fieldset class="test">
+    <legend class="testtieude"> 1. Trang chủ</legend>
+  <div id="tabs-1" class="setnd col-sm-12">
+<div class="col-sm-6"><img src="http://hstatic.net/099/1000001099/1000007924/supply-theme-home.jpg?v=54" width="100%"/></div>
+<div class="col-sm-6">
+<fieldset>
+    <legend>Màu sắc và kiểu chữ chung</legend>
+
+    <table>
+       <tr>
+      <td colspan="3">
+        <h3 class="heading">Màu sắc chung</h3>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_primary">Màu chủ đạo</label>
+      </th>
+      <td width="100"><input id="color_primary" name="color_primary" class="color" type="text" value="#204a80" /></td>
+      <td><small>Dùng cho liên kết, các nút bấm chính ...</small></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_secondary">Màu phụ</label>
+      </th>
+      <td><input id="color_secondary" name="color_secondary" class="color" type="text" value="#dcdcdc" /></td>
+      <td><small>Dùng cho các nút bậm phụ</small></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_accent">Màu điểm nhấn</label>
+      </th>
+      <td><input id="color_accent" name="color_accent" class="color" type="text" value="#ffea00" /></td>
+      <td><small>Ví dụ số lượng trong giỏ hàng</small></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_body_bg">Màu nền</label>
+      </th>
+      <td colspan="2"><input id="color_body_bg" name="color_body_bg" class="color" type="text" value="#fffff" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_borders">Màu viền</label>
+      </th>
+      <td colspan="2"><input id="color_borders" name="color_borders" class="color" type="text" value="#ececec" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_body_text">Màu chữ</label>
+      </th>
+      <td><input id="color_body_text" name="color_body_text" class="color" type="text" value="#333333" /></td>
+      <td><small>Dùng cho toàn trang - trừ liên kết</small></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="color_heading_text">Tiêu đề</label>
+      </th>
+      <td><input id="color_heading_text" name="color_heading_text" class="color" type="text" value="#000000" /></td>
+      <td><small>Các thẻ tiêu đề, h1, h2 , h3 ...</small></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+  <legend>Kiểu chữ</legend>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3 class="heading">Kiểu chữ chính</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="type_base_family">Bộ kiểu chữ chính</label></th>
+      <td>
+        <select name="type_base_family" id="type_base_family">
+          <optgroup label="Sans-serif">
+            <option value="'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, 'AppleGothic', sans-serif">Avant Garde</option>
+            <option value="'Gill Sans', 'Gill Sans MT', Calibri, sans-serif">Gill Sans</option>
+            <option value="'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif">Helvetica Neue</option>
+            <option value="Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+            <option value="Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif">Candara</option>
+            <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva</option>
+          </optgroup>
+          <optgroup label="Sans-serif | Google Web Fonts">
+            <option value="Google_Droid+Sans_400,700_sans">Droid Sans</option>
+            <option value="Google_Lato_400,700_sans">Lato</option>
+            <option value="Google_Montserrat_400,700_sans">Montserrat</option>
+            <option value="Google_Open+Sans_400,700_sans">Open Sans</option>
+            <option value="Google_PT+Sans_400,700_sans">PT Sans</option>
+            <option value="Google_Raleway_600,800_sans">Raleway</option>
+            <option value="Google_Roboto_400,700_sans">Roboto</option>
+            <option value="Google_Ubuntu_400,700_sans">Ubuntu</option>
+          </optgroup>
+          <optgroup label="Serif">
+            <option value="'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif">Big Calson</option>
+            <option value="'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif">Calisto MT</option>
+            <option value="Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif">Baskerville</option>
+            <option value="Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif">Garamond</option>
+            <option value="Georgia, 'Hoefler Text', 'Times New Roman', serif">Georgia</option>
+            <option value="TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Serif | Google Web Fonts">
+            <option value="Google_Arvo_400,400_serif">Arvo</option>
+            <option value="Google_Crimson+Text_400,700_serif">Crimson Text</option>
+            <option value="Google_Droid+Serif_400,700_serif">Droid Serif</option>
+            <option value="Google_Lora_400,700_serif">Lora</option>
+            <option value="Google_PT+Serif_400,700_serif">PT Serif</option>
+            <option value="Google_Vollkorn_400,700_serif">Vollkorn</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="type_base_size">Kích cỡ chữ</label>
+        <small>Các thẻ tiêu đề có thể khác tùy loại thẻ heading</small>
+      </th>
+      <td>
+        <select name="type_base_size" id="type_base_size">
+          <option value="12px">12px</option>
+          <option value="13px">13px</option>
+          <option value="14px">14px</option>
+          <option value="15px">15px</option>
+          <option value="16px">16px</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3 class="heading">Kiểu chữ trên Header</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="type_header_family">Bộ kiểu chữ trên Header</label></th>
+      <td>
+        <select name="type_header_family" id="type_header_family">
+          <optgroup label="Sans-serif">
+            <option value="'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, 'AppleGothic', sans-serif">Avant Garde</option>
+            <option value="'Gill Sans', 'Gill Sans MT', Calibri, sans-serif">Gill Sans</option>
+            <option value="'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif">Helvetica Neue</option>
+            <option value="Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+            <option value="Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif">Candara</option>
+            <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva</option>
+          </optgroup>
+          <optgroup label="Sans-serif | Google Web Fonts">
+            <option value="Google_Droid+Sans_400_sans">Droid Sans</option>
+            <option value="Google_Droid+Sans_700_sans">Droid Sans Bold</option>
+            <option value="Google_Lato_400_sans">Lato</option>
+            <option value="Google_Lato_700_sans">Lato Bold</option>
+            <option value="Google_Montserrat_700_sans">Montserrat Bold</option>
+            <option value="Google_Open+Sans_400_sans">Open Sans</option>
+            <option value="Google_Open+Sans_700_sans">Open Sans Bold</option>
+            <option value="Google_PT+Sans_400_sans">PT Sans</option>
+            <option value="Google_PT+Sans_700_sans">PT Sans Bold</option>
+            <option value="Google_Roboto_400_sans">Roboto</option>
+            <option value="Google_Roboto_700_sans">Roboto Bold</option>
+            <option value="Google_Ubuntu_400_sans">Ubuntu</option>
+            <option value="Google_Ubuntu_700_sans">Ubuntu Bold</option>
+          </optgroup>
+          <optgroup label="Serif">
+            <option value="'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif">Big Calson</option>
+            <option value="'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif">Calisto MT</option>
+            <option value="Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif">Baskerville</option>
+            <option value="Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif">Garamond</option>
+            <option value="TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Serif | Google Web Fonts">
+            <option value="Google_Arvo_400_serif">Arvo</option>
+            <option value="Google_Arvo_700_serif">Arvo Bold</option>
+            <option value="Google_Crimson+Text_400_serif">Crimson Text</option>
+            <option value="Google_Crimson+Text_700_serif">Crimson Text Bold</option>
+            <option value="Google_Droid+Serif_400_serif">Droid Serif</option>
+            <option value="Google_Droid+Serif_700_serif">Droid Serif Bold</option>
+            <option value="Google_Lora_400_serif">Lora</option>
+            <option value="Google_Lora_700_serif">Lora Bold</option>
+            <option value="Google_PT+Serif_400_serif">PT Serif</option>
+            <option value="Google_PT+Serif_700_serif">PT Serif Bold</option>
+            <option value="Google_Vollkorn_400_serif">Vollkorn</option>
+            <option value="Google_Vollkorn_700_serif">Vollkorn Bold</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="type_header_transform">Viết in tiêu đề</label>
+      </th>
+      <td><input type="checkbox" id="type_header_transform" name="type_header_transform" value="1" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3 class="heading">Kiểu chữ nút bấm và menu</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="type_accent_family">Bộ kiểu chữ nút bấm và menu</label></th>
+      <td>
+        <select name="type_accent_family" id="type_accent_family">
+          <optgroup label="Sans-serif">
+            <option value="'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, 'AppleGothic', sans-serif">Avant Garde</option>
+            <option value="'Gill Sans', 'Gill Sans MT', Calibri, sans-serif">Gill Sans</option>
+            <option value="'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif">Helvetica Neue</option>
+            <option value="Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+            <option value="Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif">Candara</option>
+            <option value="Geneva, Tahoma, Verdana, sans-serif">Geneva</option>
+          </optgroup>
+          <optgroup label="Sans-serif | Google Web Fonts">
+            <option value="Google_Droid+Sans_400_sans">Droid Sans</option>
+            <option value="Google_Dosis_600_sans">Dosis Semi-Bold</option>
+            <option value="Google_Lato_700_sans">Lato Bold</option>
+            <option value="Google_Montserrat_400_sans">Montserrat</option>
+            <option value="Google_Montserrat_700_sans">Montserrat Bold</option>
+            <option value="Google_Open+Sans_600_sans">Open Sans Semi-Bold</option>
+                        <option value="Google_Open+Sans_400_sans">Open Sans</option>
+            <option value="Google_Open+Sans_700_sans">Open Sans Bold</option>
+            
+            <option value="Google_PT+Sans_400_sans">PT Sans</option>
+            <option value="Google_Roboto_500_sans">Roboto Semi-Bold</option>
+            <option value="Google_Ubuntu_400_sans">Ubuntu</option>
+          </optgroup>
+          <optgroup label="Serif">
+            <option value="'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif">Big Calson</option>
+            <option value="'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif">Calisto MT</option>
+            <option value="Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif">Baskerville</option>
+            <option value="Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif">Garamond</option>
+            <option value="TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif">Times New Roman</option>
+          </optgroup>
+          <optgroup label="Serif | Google Web Fonts">
+            <option value="Google_Arvo_400_serif">Arvo</option>
+            <option value="Google_Crimson+Text_600_serif">Crimson Text Semi-Bold</option>
+            <option value="Google_Droid+Serif_400_serif">Droid Serif</option>
+            <option value="Google_Lora_400_serif">Lora</option>
+            <option value="Google_PT+Serif_400_serif">PT Serif</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="type_navigation_size">Kích cỡ nút bấm</label></th>
+      <td>
+        <select name="type_navigation_size" id="type_navigation_size">
+          <option value="14px">14px</option>
+          <option value="15px">15px</option>
+          <option value="16px">16px</option>
+          <option value="17px">17px</option>
+          <option value="18px">18px</option>
+          <option value="19px">19px</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="type_navigation_transform">Viết in menu</label>
+      </th>
+      <td><input type="checkbox" id="type_navigation_transform" name="type_navigation_transform" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="type_button_size">Kích cỡ chữ nút bấm</label></th>
+      <td>
+        <select name="type_button_size" id="type_button_size">
+          <option value="14px">14px</option>
+          <option value="15px">15px</option>
+          <option value="16px">16px</option>
+          <option value="17px">17px</option>
+          <option value="18px">18px</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="type_button_transform">Viết in chữ nút bấm</label>
+      </th>
+      <td><input type="checkbox" id="type_button_transform" name="type_button_transform" value="1" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+    <legend>1. Logo trang</legend>
+
+    <table>
+       <tr>
+      <td colspan="2">
+        <h3 class="heading">Logo</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="logo_use_image">Dùng logo riêng</label></th>
+      <td><input type="checkbox" id="logo_use_image" name="logo_use_image" value="1" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="logo_image">Tải hình logo</label>
+        <p>Chiều ngang tối thiểu 400px</p>
+      </th>
+      <td><input type="file" name="logo.png" id="logo_image" data-max-width="800" data-max-height="400" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="logo_max_width">Chiều ngang logo tối đa</label>
+        <small>Xác định chiều ngang tối đa của logo</small>
+      </th>
+      <td>
+        <input type="text" id="logo_max_width" name="logo_max_width" size="2" value="305" class="inline" />
+        <span>px</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h3 class="heading">Favicon</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="favicon_enable">
+          <input type="checkbox" id="favicon_enable" name="favicon_enable" value="1" selected="selected" />Use custom icon?<br />
+          <small>(16px x 16px png)</small></label>
+      </td>
+      <td><input type="file" id="favicon" name="favicon.png" data-max-width="16" data-max-height="16" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>2. Nội dung trên header</legend>
+
+    <table>
+        <tr>
+      <th>
+        <label for="header_message">Chữ</label>
+        <small>Tối đa 55 kí tự, hiển thị dưới thanh tìm kiếm</small>
+      </th>
+      <td><input type="text" id="header_message" name="header_message" size="50" maxlength="55" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>3. Màu sắc header và giỏ hàng</legend>
+    <table>
+       <tr>
+      <th><label for="color_header_background">Màu Header</label></th>
+      <td colspan="2"><input id="color_header_background" name="color_header_background" class="color" type="text" value="#fff" /></td>
+    </tr>
+    <tr>
+      <th><label for="color_header_text">Màu chữ và liên kết trên Header</label></th>
+      <td colspan="2"><input id="color_header_text" name="color_header_text" class="color" type="text" value="#fff" /></td>
+    </tr>
+    <tr>
+      <th><label for="color_header_cart_search">Màu nền tìm kiếm và nút giỏ hàng</label></th>
+      <td colspan="2"><input id="color_header_cart_search" name="color_header_cart_search" class="color" type="text" value="#fff" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>4. Thanh menu</legend>
+
+    <table>
+        
+        <tr>
+      <th><label for="color_nav_bg">Màu nền thanh menu</label></th>
+      <td colspan="2"><input id="color_nav_bg" name="color_nav_bg" class="color" type="text" value="#000" /></td>
+    </tr>
+    <tr>
+      <th><label for="color_nav_text">Màu chữ trên thanh menu</label></th>
+      <td colspan="2"><input id="color_nav_text" name="color_nav_text" class="color" type="text" value="#fff" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>5. Banner trang chủ</legend>
+    <table>
+        <tr>
+      <td colspan="2">
+        <h3 class="heading">Slider</h3>
+        <p>Kích cỡ đề xuất: 1000x500 px.</p>
+        <h3>Lựa chọn</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slider_home_enable">Tắt slide</label></th>
+      <td><input type="checkbox" id="slider_home_enable" name="slider_home_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slider_home_auto">Tự động đổi slide</label></th>
+      <td><input type="checkbox" id="slider_home_auto" name="slider_home_auto" value="1" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="slider_home_rate">Thời gian đổi slide</label>
+        <small>(in seconds)</small>
+      </th>
+      <td>
+        <select name="slider_home_rate" id="slider_home_rate">
+          <option value="5000">5</option>
+          <option value="7000">7</option>
+          <option value="10000">10</option>
+          <option value="15000">15</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 1</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_1">Bật</label></th>
+      <td><input type="checkbox" id="slide_1" name="slide_1" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_1">Tải ảnh</label></th>
+      <td><input type="file" name="slide_1.jpg" id="slide_1" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_1_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_1_link" name="slide_1_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_1_alt">Chú thích ảnh ALT</label></th>
+      <td><input type="text" id="slide_1_alt" name="slide_1_alt" size="50" value="" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 2</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_2">Bật</label></th>
+      <td><input type="checkbox" id="slide_2" name="slide_2" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_2">Tải ảnh</label></th>
+      <td><input type="file" name="slide_2.jpg" id="slide_2" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_2_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_2_link" name="slide_2_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_2_alt">Chú thích ảnh ALT</label></th>
+      <td><input type="text" id="slide_2_alt" name="slide_2_alt" size="50" value="" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 3</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_3">Bật</label></th>
+      <td><input type="checkbox" id="slide_3" name="slide_3" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_3">Tải ảnh</label></th>
+      <td><input type="file" name="slide_3.jpg" id="slide_3" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_3_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_3_link" name="slide_3_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_3_alt">Chú thích ảnh AlT</label></th>
+      <td><input type="text" id="slide_3_alt" name="slide_3_alt" size="50" value="" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 4</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_4">Bật</label></th>
+      <td><input type="checkbox" id="slide_4" name="slide_4" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_4">Tải ảnh</label></th>
+      <td><input type="file" name="slide_4.jpg" id="slide_4" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_4_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_4_link" name="slide_4_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_4_alt">Chú thích ảnh ALT</label></th>
+      <td><input type="text" id="slide_4_alt" name="slide_4_alt" size="50" value="" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 5</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_5">Bật</label></th>
+      <td><input type="checkbox" id="slide_5" name="slide_5" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_5">Tải ảnh</label></th>
+      <td><input type="file" name="slide_5.jpg" id="slide_5" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_5_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_5_link" name="slide_5_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_5_alt">Chú thích ảnh ALT</label></th>
+      <td><input type="text" id="slide_5_alt" name="slide_5_alt" size="50" value="" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h3>Slide 6</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="slide_6">Bật</label></th>
+      <td><input type="checkbox" id="slide_6" name="slide_6" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_6">Tải ảnh</label></th>
+      <td><input type="file" name="slide_6.jpg" id="slide_6" data-max-width="1000" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_6_link">Liên kết của banner</label></th>
+      <td><input type="text" id="slide_6_link" name="slide_6_link" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="slide_6_alt">Chú thích ảnh ALT</label></th>
+      <td><input type="text" id="slide_6_alt" name="slide_6_alt" size="50" value="" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>6. Danh mục sản phẩm nổi bật</legend>
+    <table>
+		<tr>
+      <th>
+        <label for="home_featured_collections_enable">Bật Danh mục sản phẩm nổi bật</label>
+        <small>Tối đa 6 danh mục</small>
+      </th>
+      <td><input type="checkbox" id="home_featured_collections_enable" name="home_featured_collections_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label>Chọn danh mục</label></th>
+      <td>
+        <input type="radio" name="home_featured_collections_sort" id="home_featured_auto" value="auto"/>
+        <label for="home_featured_auto" class="inline">Tự động</label><br />
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <input type="radio" name="home_featured_collections_sort" id="home_featured_manual" value="manual" />
+        <label for="home_featured_manual" class="inline">Tự chọn <small>(chọn ở dưới)</small></label>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_1" /></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_2" /></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_3" /></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_4" /></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_5" /></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><select class="collection" name="collection_6" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>7. Dòng sản phẩm nổi bật</legend>
+    <table>
+        <tr>
+      <td colspan="2">
+        <h3 class="heading">Dòng sản phẩm nổi bật</h3>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row1_enable">Bật dòng sản phẩm nổi bật 1 </label></th>
+      <td><input type="checkbox" id="home_featured_row1_enable" name="home_featured_row1_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row1">Chọn danh mục</label></th>
+      <td><select class="collection" name="home_featured_row1" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="home_featured_row1_number">Số lượng sản phẩm mỗi dòng</label>
+        <small>5 sản phẩm mỗi dòng</small>
+      </th>
+      <td>
+        <select name="home_featured_row1_number" id="home_featured_row1_number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row2_enable">Bật dòng sản phẩm nổi bật 2</label></th>
+      <td><input type="checkbox" id="home_featured_row2_enable" name="home_featured_row2_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row2">Chọn danh mục</label></th>
+      <td><select class="collection" name="home_featured_row2" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="home_featured_row2_number">Số lượng sản phẩm mỗi dòng</label>
+        <small>5 sản phẩm mỗi dòng</small>
+      </th>
+      <td>
+        <select name="home_featured_row2_number" id="home_featured_row2_number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row3_enable">Bật dòng sản phẩm nổi bật 3</label></th>
+      <td><input type="checkbox" id="home_featured_row3_enable" name="home_featured_row3_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row3">Chọn danh mục</label></th>
+      <td><select class="collection" name="home_featured_row3" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="home_featured_row3_number">Số lượng sản phẩm mỗi dòng</label>
+        <small>5 sản phẩm mỗi dòng</small>
+      </th>
+      <td>
+        <select name="home_featured_row3_number" id="home_featured_row3_number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row4_enable">Bật dòng sản phẩm nổi bật 4</label></th>
+      <td><input type="checkbox" id="home_featured_row4_enable" name="home_featured_row4_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="home_featured_row4">Chọn danh mục</label></th>
+      <td><select class="collection" name="home_featured_row4" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="home_featured_row4_number">Số lượng sản phẩm mỗi dòng</label>
+        <small>5 sản phẩm mỗi dòng</small>
+      </th>
+      <td>
+        <select name="home_featured_row4_number" id="home_featured_row4_number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>8. Danh sách liên kết ở footer</legend>
+
+    <table>
+        <tr>
+      <th><label for="footer_quicklinks_enable">Hiện menu dưới footer</label></th>
+      <td><input type="checkbox" id="footer_quicklinks_enable" name="footer_quicklinks_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_quicklinks_title">Tiêu đề menu footer</label></th>
+      <td><input type="text" id="footer_quicklinks_title" name="footer_quicklinks_title" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_quicklinks_linklist">Chọn menu footer</label></th>
+      <td><select class="linklist" name="footer_quicklinks_linklist" id="footer_quicklinks_linklist" /></td>
+    </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>9. Hiển thị thông tin liên hệ</legend>
+    <table>
+        <tr>
+      <th><label for="footer_content_enable">Hiển thị thông tin liên hệ</label></th>
+      <td><input type="checkbox" id="footer_content_enable" name="footer_content_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_content_title">Tiêu đề cột thông tin liên hệ</label></th>
+      <td><input type="text" id="footer_content_title" name="footer_content_title" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_content_text">Nội dung thông tin liên hệ</label></th>
+      <td>
+        <textarea name="footer_content_text" cols="60" rows="5" id="footer_content_text" value="" />
+        <p>Có thể nhập mã HTML</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <hr />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="footer_social_enable">Hiển thị liên kết social media</label></th>
+      <td><input type="checkbox" id="footer_social_enable" name="footer_social_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_twitter_link">Twitter link</label></td>
+      <td><input type="url" id="social_twitter_link" name="social_twitter_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_facebook_link">Facebook link</label></td>
+      <td><input type="url" id="social_facebook_link" name="social_facebook_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_pinterest_link">Pinterest link</label></td>
+      <td><input type="url" id="social_pinterest_link" name="social_pinterest_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_google_plus_link">Google Plus link</label></td>
+      <td><input type="url" id="social_google_plus_link" name="social_google_plus_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_instagram_link">Instagram link</label></td>
+      <td><input type="url" id="social_instagram_link" name="social_instagram_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_tumblr_link">Tumblr link</label></td>
+      <td><input type="url" id="social_tumblr_link" name="social_tumblr_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_youtube_link">YouTube link</label></td>
+      <td><input type="url" id="social_youtube_link" name="social_youtube_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_vimeo_link">Vimeo link</label></td>
+      <td><input type="url" id="social_vimeo_link" name="social_vimeo_link" size="50" /></td>
+    </tr>
+    <tr>
+      <td><label for="social_fancy_link">Fancy link</label></td>
+      <td><input type="url" id="social_fancy_link" name="social_fancy_link" size="50" /></td>
+    </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>10. Ô đăng ký nhận email</legend>
+    <table>
+        <tr>
+      <th><label for="footer_newsletter_enable">Hiển thị đăng ký nhận</label></th>
+      <td><input type="checkbox" id="footer_newsletter_enable" name="footer_newsletter_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_newsletter_title">Tiêu đề đăng ký nhận email</label></th>
+      <td><input type="text" id="footer_newsletter_title" name="footer_newsletter_title" value="" size="50" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="mailing_list_form_action">MailChimp Form Action URL</label>
+
+      </th>
+      <td>
+        <input type="text" id="mailing_list_form_action" name="mailing_list_form_action" value="" size="50" />
+        <p><a href="http://www.haravan.com/huongdan/giao-dien/huong-dan-lay-form-action-url-tu-mailchimp/" target="_blank">Where do I find my MailChimp form action URL?</a></p>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>11. Màu sắc footer</legend>
+    <table>
+         <tr>
+      <th><label for="color_footer_bg">Màu nền footer</label></th>
+      <td colspan="2"><input id="color_footer_bg" name="color_footer_bg" class="color" type="text" value="#f2f2f2" /></td>
+    </tr>
+    <tr>
+      <th><label for="color_footer_text">Màu chữ trong footer</label></th>
+      <td colspan="2"><input id="color_footer_text" name="color_footer_text" class="color" type="text" value="#636363" /></td>
+    </tr>
+    <tr>
+      <th><label for="color_footer_social_link">Social Icons</label></th>
+      <td colspan="2"><input id="color_footer_social_link" name="color_footer_social_link" class="color" type="text" value="#bbbbbb" /></td>
+    </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>11. Nội dung bản quyền dưới footer</legend>
+    <table>
+       <tr>
+      <th>
+        <label for="footer_legallinks_enable">Hiển thị liên kết về bản quyền</label>
+        <small>Xuất hiện kế bên dòng copyright</small>
+      </th>
+      <td><input type="checkbox" id="footer_legallinks_enable" name="footer_legallinks_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="footer_legallinks_linklist">Danh sách menu bản quyền</label></th>
+      <td><select class="linklist" name="footer_legallinks_linklist" id="footer_legallinks_linklist" /></td>
+    </tr>
+    </table>
+</fieldset>
+
+
+
+</div></div></fieldset><fieldset class="test"><legend>2. Trang nhóm sản phẩm</legend>
+<div id="tabs-2" class="setnd col-sm-12">
+<div class="col-sm-6"><img src="http://hstatic.net/099/1000001099/1000007924/supply-theme-cat.jpg?v=54" width="100%"/>
+</div>
+<div class="col-sm-6">
+<fieldset>
+    <legend>1. Bộ lọc ở cột bên (sidebar)</legend>
+    <table>
+         <tr>
+      <th><label>Bộ lọc ở cột bên (sidebar)</label></th>
+      <td colspan="2">
+        <input type="radio" name="collection_sidebar_filters" id="collection_sidebar_by_tags" value="tags"/>
+        <label for="collection_sidebar_by_tags" class="inline">Lọc bằng tags</label><br />
+        <input type="radio" name="collection_sidebar_filters" id="collection_sidebar_by_groups" value="groups" />
+        <label for="collection_sidebar_by_groups" class="inline">Lọc bằng nhóm</label>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>2. Kích cỡ hình ảnh</legend>
+    <table>
+        <tr>
+      <th>
+        <label for="collection_prod_image_sizes">Kích cỡ hình ảnh</label>
+        
+      </th>
+      <td>
+        <select name="collection_prod_image_sizes" id="collection_prod_image_sizes">
+          <option value="compact">Nhỏ</option>
+          <option value="large">Vừa ( mặc định )</option>
+        </select>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+
+</div>
+</div></fieldset>
+<fieldset>
+<legend class="test">3. Trang sản phẩm</legend>
+
+<div id="tabs-3" class="setnd col-sm-12">
+<div class="col-sm-6"><img src="http://hstatic.net/099/1000001099/1000007924/supply-theme-details.jpg?v=54" width="100%"/>
+</div>
+<div class="col-sm-6">
+<fieldset>
+    <legend>1. Hình ảnh sản phẩm</legend>
+    <table>
+        <tr>
+      <th><label for="product_image_zoom_enable">Bật phóng to hình ảnh</label></th>
+      <td colspan="2"><input type="checkbox" id="product_image_zoom_enable" name="product_image_zoom_enable" value="1" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>2. Hiển thị số lượng sản phẩm?</legend>
+    <table>
+        <tr>
+      <th><label for="product_quantity_enable">Hiện ô nhập số lượng</label></th>
+      <td colspan="2"><input type="checkbox" id="product_quantity_enable" name="product_quantity_enable" value="1" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>3. Hiển thị nhà cung cấp?</legend>
+    <table>
+      <tr>
+      <th><label for="product_vendor_enable">Hiển thị nhà cung cấp</label></th>
+      <td colspan="2"><input type="checkbox" id="product_vendor_enable" name="product_vendor_enable" value="1" /></td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>4. Social Sharing?</legend>
+    <table>
+      <tr>
+      <th>
+        <label for="twittercard_handle">Twitter Handle</label>
+      </th>
+      <td><input type="text" id="twittercard_handle" name="twittercard_handle" value="@" /></td>
+    </tr>
+    <tr>
+      <th><label for="social_sharing_products">Hiện nút chia sẻ ở bài viết</label></th>
+      <td><input type="checkbox" id="social_sharing_products" name="social_sharing_products" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="social_sharing_blog">Hiện nút chia sẻ ở blog</label></th>
+      <td><input type="checkbox" id="social_sharing_blog" name="social_sharing_blog" value="1" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="social_sharing_count">Hiện ô số chia sẻ</label>
+        <small>Chỉ dành cho Facebook, Twitter, and Pinterest</small>
+      </th>
+      <td><input type="checkbox" id="social_sharing_count" name="social_sharing_count" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="social_sharing_style">Loại nút bấm</label></th>
+      <td>
+        <select id="social_sharing_style" name="social_sharing_style">
+          <option value="is-default">Bình thường</option>
+          <option value="is-large">Lớn</option>
+          <option value="is-clean">Phẳng</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <tr>
+            <td>
+              <table>
+                <th width="150"><label for="share_facebook">Share on Facebook</label></th>
+                <td><input type="checkbox" id="share_facebook" name="share_facebook" value="1" /></td>
+              </table>
+            </td>
+            <td>
+              <table>
+                <th width="150"><label for="share_twitter">Tweet on Twitter</label></th>
+                <td><input type="checkbox" id="share_twitter" name="share_twitter" value="1" /></td>
+              </table>
+            </td>
+            <td>
+              <table>
+                <th width="150"><label for="share_pinterest">Pin on Pinterest</label></th>
+                <td><input type="checkbox" id="share_pinterest" name="share_pinterest" value="1" /></td>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table>
+                <th width="150"><label for="share_fancy">Add to Fancy</label></th>
+                <td><input type="checkbox" id="share_fancy" name="share_fancy" value="1" /></td>
+              </table>
+            </td>
+            <td>
+              <table>
+                <th width="150"><label for="share_google">+1 on Google Plus</label></th>
+                <td><input type="checkbox" id="share_google" name="share_google" value="1" /></td>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>5. Hiển thị các sản phẩm tương tự?</legend>
+    <table>
+         <tr>
+      <th><label for="related_products_enable">Bật sản phẩm liên quan</label></th>
+      <td colspan="2"><input type="checkbox" id="related_products_enable" name="related_products_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th><label for="related_products_title">Tiêu đề sản phẩm liên quan</label></th>
+      <td colspan="2"><input type="text" id="related_products_title" name="related_products_title" size="50" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <h3 class="heading">Đánh giá sản phẩm</h3>
+        
+      </td>
+    </tr>
+    </table>
+</fieldset>
+</div>
+</div></fieldset>
+<fieldset class="test"><legend>4. Trang giỏ hàng</legend>
+<div id="tabs-2" class="setnd col-sm-12">
+<div class="col-sm-6"><img src="http://hstatic.net/099/1000001099/1000007924/supply-theme-cart.jpg?v=54" width="100%"/>
+</div>
+<div class="col-sm-6">
+<fieldset>
+    <legend>Thiết lập cho trang giỏ hàng</legend>
+    <table>
+         <tr>
+      <th><label for="cart_notes_enable">Cho phép nhập ghi chú</label></th>
+      <td><input type="checkbox" id="cart_notes_enable" name="cart_notes_enable" value="1" /></td>
+    </tr>
+    <tr>
+      <th>
+        <label for="ajax_cart_enable">Bật giỏ hàng Ajax</label>
+      </th>
+      <td><input type="checkbox" id="ajax_cart_enable" name="ajax_cart_enable" /></td>
+    </tr>
+    <tr>
+      <th><label for="ajax_cart_method">Loại giỏ hàng Ajax</label></th>
+      <td>
+        <select name="ajax_cart_method" id="ajax_cart_method">
+          <option value="drawer">Drawer</option>
+          <option value="flip">Flip</option>
+          <option value="modal">Modal</option>
+        </select>
+      </td>
+    </tr>
+    </table>
+</fieldset>
+
+</div>
+</div></fieldset>

@@ -1,0 +1,215 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{ 'html5shiv.js' | asset_url | script_tag }}
+
+    {{ content_for_header }}
+
+    {{ 'jquery.min.js' |haravan_asset_url| script_tag }}
+    {{ 'jquery-migrate-1.2.0.min.js' | asset_url | script_tag }}
+    {{ 'api.jquery.js' | haravan_asset_url | script_tag }}
+    {{ 'bootstrap.min.js' | haravan_asset_url | script_tag }}
+    {{ 'option_selection.js' | haravan_asset_url | script_tag }}
+    {{ 'api.jquery.js' | haravan_asset_url | script_tag }}
+    {{ 'jquery.zoom.js' | haravan_asset_url | script_tag }}
+
+    {{ 'bootstrap.min.css' | haravan_asset_url | stylesheet_tag }}
+    {{ 'facebook.css' | haravan_asset_url | stylesheet_tag }}
+    {{ 'haravan.fb.js' | haravan_asset_url | script_tag }}
+  </head>
+  <body>
+    <!-- Begin wrapper -->
+    <div  id="wrapper" class="container">
+        <div id="header" class="row page-header">
+          {%unless iframe_setting.banner_url == empty %}
+          <div class="banner">
+            <img src="{{iframe_setting.banner_url |  img_url: 'fbsbanner'}}"></img>
+          </div>
+         {%endunless%}
+          <div class="col-sm-12 ">
+            {% if iframe_setting.default_collection_id != collection.id %}
+            {% if collection.title != null and template == "product.fb" %}
+            <a href = "{{ collection.url |iflink }}">
+              Quay về
+              {% unless collection.title contains 'Products'  %}
+              {{collection.title}}
+              {%endunless%}
+            </a>
+            {% else %}
+            {% unless collection.title contains 'Products' %}
+            <a href ="/collections/all?{{iframeQuery}}">Quay về</a>
+            {% endunless %}
+            {% endif %}
+            {% endif %}
+            <div class="pull-right  text-right">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  {% if collection.title contains 'Products'  %}
+                  Tất cả sản phẩm
+                  {% elsif  collection.title != null %}
+                  {{collection.title}}
+                  {% else %}
+                  {{"Danh mục sản phẩm"}}
+                  {% endif %}
+                  {%if linklists[iframe_setting.linklist_handle].links.size > 1%}
+                  <span class="caret"></span> 
+                  {%endif%}
+                </button>
+                {%if linklists.[iframe_setting.linklist_handle].links.size > 1%}
+                <ul class="dropdown-menu menu-facebook" role="menu">
+                  {% for l in linklists.[iframe_setting.linklist_handle].links %}
+                  <li>
+                    <a href="{{ l.url | iflink }}" {% if collection.title == l.title %} class="current" {% endif %}>{{ l.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {%endif%}
+              </div>
+
+
+              <a class="btn btn-default cart" id="cart-target" href="/cart?{{iframeQuery}}" title="Shopping Cart">
+                Giỏ hàng (<span id="cart-count" >{{ cart.item_count }}</span>)
+              </a>
+            </div>
+          </div>
+          <!-- /.span12 -->
+        </div>
+        <!-- /.row -->
+        <!-- Begin content-->
+        <section id="content" class="clearfix">
+          {% if template == "list-collections" %}
+          <div class="row products ">
+            {% for collection in collections %}
+            {% unless collection.all_products_count == 0 or collection.handle == "frontpage" %}
+            {% include 'collection-loop.fb' %}
+            {% endunless %}
+            {% endfor %}
+          </div> <!-- /#collection.row -->
+          {% else %}
+          {{ content_for_layout }}
+          {% endif %}
+        </section>
+        <!-- End content-->
+    </div>
+    <!-- End wrapper -->
+
+    <!-- Begin footer -->
+    <div class="footer-wrapper text-center">
+      <!-- Begin copyright -->
+      <div class="span12 tc copyright">
+        <p>Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name }} | {{ powered_by_link }}</p>
+      </div>
+
+    </div>
+    <!-- End footer -->
+
+    {% if template contains 'product' %}
+
+    <script>
+  
+  
+      var selectCallback = function(variant, selector) {
+      if (variant && variant.available) {
+      jQuery('#add-to-cart').removeAttr('disabled').removeClass('disabled');
+      if(variant.price < variant.compare_at_price){
+        jQuery('#price-preview').html(Haravan.formatMoney(variant.price, "{{ shop.money_format }}") + " <del>" + Haravan.formatMoney(variant.compare_at_price, "{{ shop.money_format }}") + "</del>");
+      } else {
+      jQuery('#price-preview').html(Haravan.formatMoney(variant.price, "{{ shop.money_format }}"));
+      }
+      } else {
+      jQuery('#add-to-cart').addClass('disabled').attr('disabled', 'disabled');
+      var message = variant ? "Sold Out" : "Unavailable";
+      jQuery('#price-preview').text(message);
+      }
+      };
+
+      jQuery(document).ready(function(){
+
+      new Haravan.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+
+      // Add label if only one product option and it isn't 'Title'.
+      {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+      {% endif %}
+
+      // Auto-select first available variant on page load.
+      {% assign found_one_in_stock = false %}
+      {% for variant in product.variants %}
+      {% if variant.available and found_one_in_stock == false %}
+      {% assign found_one_in_stock = true %}
+      {% for option in product.options %}
+      $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+
+      });
+
+    </script>
+
+    {% endif %}
+    <script>
+      function minmax(value, min, max)
+      {
+      if(parseInt(value) < min || isNaN(value)) 
+        return min; 
+    else if(parseInt(value) > max)
+        return max; 
+    else return value;
+    }
+      jQuery(document).ready(function(){
+      $(".btn.cart").click(function(){
+      $(".cartmodal .modal-body").load('/cart?{{iframeQuery}}');
+      $(".cartmodal").modal("show");
+      return false;
+      });
+      $(document).on("click",".glyphicon-remove-circle",function(){
+      var $this=$(this);
+      Haravan.removeItem($this.attr("data-id"),function(cart){
+      $(".cartmodal .modal-body").load('/cart?{{iframeQuery}}');
+
+      $("#cart-count").text(cart.item_count);
+      });
+      return false;
+      });
+      $(document).on("click","#update-cart",function(){
+        Haravan.updateCartFromForm("cartform", function(cart){ 
+            $(".cartmodal .modal-body").load('/cart?{{iframeQuery}}', function(){
+              $(".cartmodal .modal-body .message").text('Cập nhật thành công!').fadeIn().delay(3000).fadeOut();
+            });   
+            $("#cart-count").text(cart.item_count);
+        });
+        return false;
+      });
+      });
+    </script>
+    <div class="modal fade cartmodal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title">Giỏ hàng</h4>
+          </div>
+          <div class="modal-body">
+            <p>Loading...</p>
+          </div>
+
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </body>
+</html>

@@ -1,0 +1,12 @@
+Save
+{% if shop.money_format == '${{amount}}' %}
+  {{ compare_price | minus: product_price | money | replace: '.','<sup>' }}</sup>
+{% elsif shop.money_format == '${{amount_with_comma_separator}}' %}
+  {{ compare_price | minus: product_price | money | replace: ',','<sup>' }}</sup>
+{% else %}
+  {{ compare_price | minus: product_price | money }}
+{% endif %}
+
+{% comment %}
+{{ compare_price | minus: product_price | times: 100 | divided_by: compare_price | round }}%
+{% endcomment %}

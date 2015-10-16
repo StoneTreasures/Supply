@@ -1,0 +1,36 @@
+<div class="form-horizontal">
+  <label for="sortBy" class="small--hide">Sắp xếp theo</label>
+  <select name="sortBy" id="sortBy">
+    <option value="manual">Nổi bật</option>
+    <option value="best-selling">Bán chạy</option>
+    <option value="title-ascending">A-Z</option>
+    <option value="title-descending">Z-A</option>
+    <option value="price-ascending">Giá thấp nhất</option>
+    <option value="price-descending">Giá cao nhất</option>
+    <option value="created-descending">Mới nhát</option>
+    <option value="created-ascending">Cũ hơn</option>
+  </select>
+</div>
+
+<script>
+  Haravan.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Haravan.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+
+  $(function() {
+    $('#sortBy')
+      // select the current sort order
+      .val('{{ collection.sort_by | default: collection.default_sort_by }}')
+      .bind('change', function() {
+        Haravan.queryParams.sort_by = jQuery(this).val();
+        location.search = jQuery.param(Haravan.queryParams).replace(/\+/g, '%20');
+      }
+    );
+  });
+</script>

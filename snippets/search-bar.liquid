@@ -1,0 +1,9 @@
+<form action="/search" method="get" class="search-bar" role="search">
+  <input type="hidden" name="type" value="product">
+
+  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Bạn cần tìm gì trên trang" aria-label="Bạn cần tìm gì trên trang">
+  <button type="submit" class="search-bar--submit icon-fallback-text">
+    <span class="icon icon-search" aria-hidden="true"></span>
+    <span class="fallback-text">Tìm kiếm</span>
+  </button>
+</form>

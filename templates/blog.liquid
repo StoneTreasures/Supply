@@ -1,0 +1,67 @@
+{% paginate blog.articles by 5 %}
+
+{% include 'breadcrumb' %}
+
+<div class="grid grid-border">
+
+  <div class="grid-item large--four-fifths">
+    <div class="grid">
+      <div class="grid-item large--ten-twelfths">
+
+        {% if current_tags %}
+          <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+        {% else %}
+          <h1>{{ blog.title }}</h1>
+        {% endif %}
+
+        {% for article in blog.articles %}
+
+          <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="text-light">
+            Posted by <strong>{{ article.author }}</strong> at
+            <strong><time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+              {{ article.published_at | date: '%b %d, %Y' }}
+            </time></strong>
+          </p>
+
+          <div class="rte">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+            {% endif %}
+          </div>
+
+          <ul>
+            {% if blog.comments_enabled? %}
+            <li>
+              <a href="{{ article.url }}#comments">
+                {{ article.comments_count }} {{ article.comments_count | pluralize: 'comment','comments' }}
+              </a>
+            </li>
+            {% endif %}
+
+            {% include 'tags-article' %}
+          </ul>
+
+          <p><a href="{{ article.url }}">Read more →</a></p>
+
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+        <hr>
+        <div class="text-center">
+          {% include 'pagination-custom' %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar grid-item large--one-fifth grid-border--left">
+    {% include 'blog-sidebar' %}
+  </aside>
+</div>
+
+{% endpaginate %}

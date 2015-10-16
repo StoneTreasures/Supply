@@ -1,0 +1,111 @@
+{% layout 'theme.fb' %}
+<div id="product" class="{{ product.handle }}" itemscope="" itemtype="http://schema.org/Product">
+  <div class="row clearfix">
+    <!-- Begin product photos -->
+    <div class="col-sm-6">
+
+      <!-- Begin featured image -->
+      <div class="image featured">
+       
+        <a href="{{ product.featured_image | product_img_url: 'master' }}" onclick="return false;" class="cloud-zoom zoom" id="placeholder">
+          <img src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+      
+      </div>
+      <!-- End product image -->
+
+      {% if product.images.size > 1%}
+      <!-- Begin thumbnails -->
+      <div class="thumbs clearfix">
+        {% for image in product.images %}
+       
+        <div class="image {% cycle 'last-in-row': '', '', ' last-in-row' %}">
+          <a href="{{ image | product_img_url: 'master' }}" class="cloud-zoom-gallery" data-original-image="{{ image | product_img_url: 'master' }}" data-image-id="{{ image.id }}">
+            <img src="{{ image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
+          </a>
+        </div>
+    
+        {% endfor %}
+      </div>
+      <!-- End thumbnails -->
+
+      {% endif %}
+    </div>
+    <!-- End product photos -->
+
+    <!-- Begin description -->
+    <div class="col-sm-6">
+
+      <h1 class="title" itemprop="name">{{ product.title }}</h1>
+
+      <div class="purchase" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+        {% if product.available %}
+        <link itemprop="availability" href="http://schema.org/InStock" />
+        {% else %}
+        <link itemprop="availability" href="http://schema.org/OutOfStock" />
+        {% endif %}
+
+        <h2 class="price" id="price-preview">
+          <span itemprop="price">{{ product.price_min | money }}</span>{% if product.price_min < product.compare_at_price_min %} <del>{{ product.compare_at_price_min | money }}</del>{% endif %}
+        </h2>
+      </div>
+
+      {% assign hide_default_title = false %}
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      {% assign hide_default_title = true %}
+      {% endif %}
+
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
+
+        <!-- Begin product options -->
+        <div class="product-options">
+                    
+          <div class="clearfix"{% if hide_default_title %} style="display:none"{% endif %}>
+            <select id="product-select" class="form-control" name="id">
+              {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+       
+          <div class="selector-wrapper">
+            <label >Quantity</label>
+            <input id="quantity" type="number" name="quantity" value="1" class="tc item-quantity" />
+          </div>
+    
+          <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}">
+            <div class="purchase form-group ">
+              {% unless product.available %}
+              <p>Sold Out</p>
+              {% else %}
+              <button type="submit" id="add-to-cart" class="btn addtocart btn-primary" name="add">
+                <i class="glyphicon glyphicon-shopping-cart"></i> Thêm vào giỏ hàng
+              </button>
+              <div id="cart-animation" style="display:none">1</div>
+              {% endunless %}
+            </div>
+          </div>
+
+        </div>
+        <!-- End product options -->
+
+      </form>
+
+      
+    </div>
+        {%unless product.description == empty%}
+      <div class="col-sm-12 product-description" >
+      <ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Chi tiết sản phẩm</a></li>
+</ul>
+      <div class="tab-content">
+  <div class="tab-pane active " id="home">  {{ product.description }}</div>
+          </div>
+      </div>
+      {%endunless%}
+      
+    <!-- End description -->
+  </div>
+</div>

@@ -1,0 +1,71 @@
+{% layout settings.customer_layout %}
+
+<h1>Tài khoản</h1>
+
+<hr class="hr--small">
+
+<div class="grid">
+
+  <div class="grid-item two-thirds medium-down--one-whole">
+    <h4>Lịch sử đơn hàng</h4>
+
+    {% if customer.orders.size != 0 %}
+
+      <table class="full">
+        <thead>
+          <tr>
+            <th>Đơn hàng</th>
+            <th>Ngày đặt</th>
+            <th>Tình trạng thanh toán</th>
+            <th>Tình trạng giao hàng</th>
+            <th>Tổng cộng</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+            <tr>
+              <td>{{ order.name | link_to: order.customer_url }}</td>
+              <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+              <td>{{ order.financial_status }}</td>
+              <td>{{ order.fulfillment_status }}</td>
+              <td>{{ order.total_price | money }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Bạn chưa có đơn hàng nào.</p>
+    {% endif %}
+  </div>
+  <div class="grid-item one-third medium-down--one-whole">
+    <h4>Chi tiết đơn hàng</h4>
+
+    <h5>{{ customer.name }}</h5>
+
+    {% if customer.default_address != nil %}
+      <p>
+      {{ customer.default_address.address1 }}<br>
+
+      {% if customer.default_address.address2 != "" %}
+        {{ customer.default_address.address2 }}<br>
+      {% endif %}
+      {% if customer.default_address.province != "" %}
+        {{ customer.default_address.province }}<br>
+      {% endif %}
+
+      {% if customer.default_address.country != "" %}
+        {{ customer.default_address.country }}<br>
+      {% endif %}
+
+      {% if customer.default_address.phone != "" %}
+        {{ customer.default_address.phone }}
+      {% endif %}
+
+      </p>
+
+    {% endif %}
+
+    <p><a href="/account/addresses">Xem địa chỉ({{ customer.addresses_count }})</a></p>
+  </div>
+
+</div>

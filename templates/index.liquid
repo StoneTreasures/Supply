@@ -1,0 +1,211 @@
+{% include 'slider' %}
+
+{% if settings.home_featured_collections_enable %}
+  <div class="section-header">
+    <h2 class="h1 section-header--left">Xem sản phẩm</h2>
+    <div class="section-header--right">
+      <a href="/collections">Xem thêm các danh mục khác &rsaquo;</a>
+    </div>
+  </div>
+  <div class="grid-uniform text-center row-negative-bottom">
+
+    {% assign index = 0 %}
+
+    {% if settings.home_featured_collections_sort == 'manual' %}
+      {% if settings.collection_1 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+      {% if settings.collection_2 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+      {% if settings.collection_3 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+      {% if settings.collection_4 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+      {% if settings.collection_5 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+      {% if settings.collection_6 != blank %}{% assign index = index | plus: 1 %}{% endif %}
+    {% else %}
+      {% for collection in collections limit:7 %}
+        {% unless index > 6 %}
+          {% unless collection.handle == 'frontpage' %}
+            {% assign index = index | plus: 1 %}
+          {% endunless %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+
+    {% case index %}
+      {% when 1 %}
+        {% assign featured_collection_width = 'one-half' %}
+        {% assign featured_collection_size = 'large' %}
+      {% when 2 %}
+        {% assign featured_collection_width = 'one-half' %}
+        {% assign featured_collection_size = 'large' %}
+      {% when 3 %}
+        {% assign featured_collection_width = 'small--one-half one-third' %}
+      {% when 4 %}
+        {% assign featured_collection_width = 'small--one-half one-quarter' %}
+      {% when 5 %}
+        {% assign featured_collection_width = 'small--one-half medium--one-third large--one-fifth' %}
+      {% when 6 %}
+        {% assign featured_collection_width = 'small--one-half medium--one-third large--one-sixth' %}
+    {% endcase %}
+
+    {% if settings.home_featured_collections_sort == 'manual' %}
+      {% if settings.collection_1 != blank %}
+        {% assign featured = settings.collection_1 %}
+        {% include 'featured-collection' %}
+      {% endif %}
+      {% if settings.collection_2 != blank %}
+        {% assign featured = settings.collection_2 %}
+        {% include 'featured-collection'%}
+      {% endif %}
+      {% if settings.collection_3 != blank %}
+        {% assign featured = settings.collection_3 %}
+        {% include 'featured-collection' %}
+      {% endif %}
+      {% if settings.collection_4 != blank %}
+        {% assign featured = settings.collection_4 %}
+        {% include 'featured-collection' %}
+      {% endif %}
+      {% if settings.collection_5 != blank %}
+        {% assign featured = settings.collection_5 %}
+        {% include 'featured-collection' %}
+      {% endif %}
+      {% if settings.collection_6 != blank %}
+        {% assign featured = settings.collection_6 %}
+        {% include 'featured-collection' %}
+      {% endif %}
+    {% else %}
+      {% for collection in collections limit:7 %}
+        {% unless index > 6 %}
+          {% unless collection.handle == 'frontpage' %}
+            {% assign featured = collection.handle %}
+            {% include 'featured-collection' %}
+          {% endunless %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+
+    {% if index == 0 %}
+      <div class="grid-item text-center">
+        <p>Bạn chưa chọn danh mục để hiển thị | <a href="/admin/themes/">Thêm các danh mục nổi bật</a> trong thiết lập theme.</p>
+      </div>
+      <div class="grid-item">
+        <div class="grid-uniform">
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+             Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+              Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+              Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+              Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+              Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+          <div class="grid-item small--one-half medium--one-third large--one-sixth text-center">
+            <div class="demo-image">
+              Hình ảnh danh mục
+            </div>
+            <p><a href="/admin/custom_collections">Danh mục mẫu</a></p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+{% endif %}
+
+{% if settings.home_featured_row1_enable %}
+  <hr>
+  {% assign featured_row = settings.home_featured_row1 %}
+  {% assign row_limit_setting = settings.home_featured_row1_number %}
+
+  {% if featured_row == blank or collections[featured_row].all_products_count == 0 %}
+    <div class="section-header">
+      <p class="h1">Danh mục nổi bật</p>
+      <div class="section-header--right">
+        <a href="{{ collections[featured_row].url }}">Xem thêm &rsaquo;</a>
+      </div>
+    </div>
+
+    <div class="grid text-center row-negative-bottom">
+      <div class="grid-item">
+        <p>Bạn chưa có sản phẩm trong danh mục <strong>{{ collections[featured_row].title }}</strong> collection.</p>
+        <p>Đoạn thông báo này sẽ hiện khi bạn chưa <a href="/admin/collections">thêm sản phẩm</a> hoặc ẩn <em>dòng sản phẩm nổi bật</em> trong thiết lập theme.</p>
+      </div>
+
+      <div class="grid-item">
+        <div class="grid-uniform">
+          <div class="grid-item large--one-fifth medium--one-third text-center">
+            <a href="/admin/products" class="demo-image">
+      Thêm sản phẩm
+            </a>
+            <p><a href="/admin/products">Sản phẩm mẫu</a> $19.99</p>
+          </div>
+          <div class="grid-item large--one-fifth medium--one-third text-center">
+            <a href="/admin/products" class="demo-image">
+             Thêm sản phẩm
+            </a>
+            <p><a href="/admin/products">Sản phẩm mẫu</a> $19.99</p>
+          </div>
+          <div class="grid-item large--one-fifth medium--one-third text-center">
+            <a href="/admin/products" class="demo-image">
+             Thêm sản phẩm
+            </a>
+            <p><a href="/admin/products">Sản phẩm mẫu</a> $19.99</p>
+          </div>
+          <div class="grid-item large--one-fifth medium--one-third text-center">
+            <a href="/admin/products" class="demo-image">
+              Thêm sản phẩm
+            </a>
+            <p><a href="/admin/products">Sản phẩm mẫu</a> $19.99</p>
+          </div>
+          <div class="grid-item large--one-fifth medium--one-third text-center">
+            <a href="/admin/products" class="demo-image">
+             Thêm sản phẩm
+            </a>
+            <p><a href="/admin/products">Sản phẩm mẫu</a> $19.99</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {% include 'featured-row' %}
+  {% endif %}
+{% endif %}
+
+{% if settings.home_featured_row2_enable and settings.home_featured_row2 != blank %}
+  <hr>
+  {% assign featured_row = settings.home_featured_row2 %}
+  {% assign row_limit_setting = settings.home_featured_row2_number %}
+  {% include 'featured-row' %}
+{% endif %}
+
+{% if settings.home_featured_row3_enable and settings.home_featured_row3 != blank %}
+  <hr>
+  {% assign featured_row = settings.home_featured_row3 %}
+  {% assign row_limit_setting = settings.home_featured_row3_number %}
+  {% include 'featured-row' %}
+{% endif %}
+
+{% if settings.home_featured_row4_enable and settings.home_featured_row4 != blank %}
+  <hr>
+  {% assign featured_row = settings.home_featured_row4 %}
+  {% assign row_limit_setting = settings.home_featured_row4_number %}
+  {% include 'featured-row' %}
+{% endif %}
